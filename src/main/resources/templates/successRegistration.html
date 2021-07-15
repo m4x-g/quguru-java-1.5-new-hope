@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>success Registration</title>
+</head>
+<body>
+    <div th:text="${status == 'error'} ? 'some fields are empty' : 'Hello, ' + ${user.firstName} + '! You are now a registered sex offender!'"/>
+    <div th:text="'phone number: ' + ${user.phone}"/>
+</body>
+</html>

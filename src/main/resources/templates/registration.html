@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+</head>
+<body>
+    <fieldset th:if="${status == 'error'}">
+        <legend>try again!</legend>
+        <div th:if="${userData.firstName == ''}" th:text="'first name is empty'"/>
+        <div th:if="${userData.lastName == ''}"  th:text="'last name is empty'"/>
+        <div th:if="${userData.email == '' }" th:text="' user email is empty'"/>
+        <div th:if="${userData.phone == ''}" th:text="'phone is empty'"/>
+    </fieldset>
+    <form th:action="@{/registration}" th:object="${userData}" method="post">
+        <div><input type="text" placeholder="First Name" th:field="*{firstName}"></div>
+        <div><input type="text" placeholder="Last Name" th:field="*{lastName}"></div>
+        <div><input type="text" placeholder="email" th:field="*{email}"></div>
+        <div><input type="text" placeholder="phone" th:field="*{phone}"></div>
+        <div><input type="submit" value="Register!"></div>
+    </form>
+</body>
+</html>
